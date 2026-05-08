@@ -1,17 +1,14 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import app from "./app.js";
 
-dotenv.config();
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send({ message: 'API Dog Walker Rodando! 🐾' });
-});
+const HOST = "localhost";
+const PORT = 3000;
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`-----------------------------------------`);
+    console.log(`🚀 API Server is running!`);
+    console.log(`-----------------------------------------`);
+    console.log(`📡 API (v1):       http://${HOST}:${PORT}/api/v1`);
+    console.log(`💓 Health Check:   http://${HOST}:${PORT}/status`);
+    console.log(`-----------------------------------------`);
+    console.log(`💡 Press CTRL+C to stop the server\n`);
 });
