@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { TutorRepository } from "../repositories/tutor.repository.js";
+import { TutorRepository } from "../Repositories/tutor.repository.js";
 import { createTutorSchema, updateTutorSchema, Tutor } from "../models/tutor.models.js";
 import { z } from "zod";
 
