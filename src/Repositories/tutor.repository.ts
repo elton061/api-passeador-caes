@@ -37,3 +37,6 @@ export class TutorRepository {
         return this.lista_tutores.length <initialLeght;
     }
 }
+
+// Exportando uma única instância constante pois os dados ainda estão na RAM.
+export const tutorRepositoryInstance = new TutorRepository();

@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
 import { TutorRepository } from "../Repositories/tutor.repository.js";
 import { createTutorSchema, updateTutorSchema, Tutor } from "../models/tutor.models.js";
+import { tutorRepositoryInstance } from "../Repositories/tutor.repository.js";
 import { z } from "zod";
 
 export class TutorController {
 
-    private tutorRepository = new TutorRepository();
+    private tutorRepository = tutorRepositoryInstance;
     // metodo get do TutorController
     async getALL(req: Request, res: Response){
         const tutores = await this.tutorRepository.findALL();
