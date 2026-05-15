@@ -43,7 +43,7 @@ export class Pet {
         this.sexo = propriedades.sexo;
         this.peso = propriedades.peso;
         this.porte = propriedades.porte;
-        this.descricao = propriedades.descricao;
+        this.descricao = propriedades.descricao ?? "";
         this.id_tutor = propriedades.id_tutor!;
         this.cpf_tutor = propriedades.cpf_tutor;
     }

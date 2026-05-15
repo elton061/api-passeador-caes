@@ -70,12 +70,11 @@ export class PetController {
                 });
                 return; 
             }
-            const petCompleto = {
+            const newPet = new Pet({
                 ...validatedData,
                 id_tutor: tutorEncontrado.id
-            };
-            //instancia o novo pet apos pegar os parametros de req.body validados pelo zod
-            const newPet = new Pet(validatedData);
+            });
+
             const savedPet = await this.petRepository.create(newPet);
 
             res.status(201).json(savedPet);
