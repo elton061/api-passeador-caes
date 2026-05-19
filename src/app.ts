@@ -1,0 +1,29 @@
+import express, { Request, Response } from "express";
+import routes from "./routes/index.js"; // Importa o indexador de rotas
+
+const app = express();
+app.use(express.json());
+
+app.use("/api/v1", routes);
+
+app.get("/status", (req: Request, res: Response) => {
+    const status = {
+        "status": 'ONLINE',
+        "message": 'API is running normally',
+        "timestamp": new Date().toISOString(),
+    };
+    res.status(200).json(status);
+});
+
+// Tratamento global para rotas não encontradas (404)
+app.use((req: Request, res: Response) => {
+    const err = {
+        error: {
+            code: 'NOT_FOUND',
+            message: `Endpoint not found at ${req.originalUrl}`
+        }
+    };
+    res.status(404).json(err);
+});
+
+export default app;
